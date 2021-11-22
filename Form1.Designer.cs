@@ -74,42 +74,42 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // puertosToolStripMenuItem1
             // 
             this.puertosToolStripMenuItem1.Name = "puertosToolStripMenuItem1";
-            this.puertosToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.puertosToolStripMenuItem1.Size = new System.Drawing.Size(280, 44);
             this.puertosToolStripMenuItem1.Text = "Puertos";
             // 
             // velocidadToolStripMenuItem
             // 
             this.velocidadToolStripMenuItem.Name = "velocidadToolStripMenuItem";
-            this.velocidadToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.velocidadToolStripMenuItem.Size = new System.Drawing.Size(280, 44);
             this.velocidadToolStripMenuItem.Text = "Velocidad";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(356, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(277, 6);
             // 
             // verificarToolStripMenuItem
             // 
             this.verificarToolStripMenuItem.Name = "verificarToolStripMenuItem";
-            this.verificarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.verificarToolStripMenuItem.Size = new System.Drawing.Size(280, 44);
             this.verificarToolStripMenuItem.Text = "Verificar";
             // 
             // conectarToolStripMenuItem
             // 
             this.conectarToolStripMenuItem.Name = "conectarToolStripMenuItem";
-            this.conectarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.conectarToolStripMenuItem.Size = new System.Drawing.Size(280, 44);
             this.conectarToolStripMenuItem.Text = "Conectar";
             // 
             // desconectarToolStripMenuItem
             // 
             this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(280, 44);
             this.desconectarToolStripMenuItem.Text = "Desconectar";
             // 
             // pruebaToolStripMenuItem
             // 
             this.pruebaToolStripMenuItem.Name = "pruebaToolStripMenuItem";
-            this.pruebaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.pruebaToolStripMenuItem.Size = new System.Drawing.Size(280, 44);
             this.pruebaToolStripMenuItem.Text = "Prueba";
             // 
             // aplicacionesToolStripMenuItem
@@ -134,6 +134,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.temperaturaToolStripMenuItem.Name = "temperaturaToolStripMenuItem";
             this.temperaturaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.temperaturaToolStripMenuItem.Text = "Temperatura";
+            this.temperaturaToolStripMenuItem.Click += new System.EventHandler(this.temperaturaToolStripMenuItem_Click);
             // 
             // semáforoToolStripMenuItem
             // 
