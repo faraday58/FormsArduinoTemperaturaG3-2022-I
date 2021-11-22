@@ -53,7 +53,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.aplicacionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1803, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1947, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,6 +134,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.temperaturaToolStripMenuItem.Name = "temperaturaToolStripMenuItem";
             this.temperaturaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.temperaturaToolStripMenuItem.Text = "Temperatura";
+            this.temperaturaToolStripMenuItem.Click += new System.EventHandler(this.temperaturaToolStripMenuItem_Click);
             // 
             // semáforoToolStripMenuItem
             // 
@@ -145,7 +146,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1803, 887);
+            this.ClientSize = new System.Drawing.Size(1947, 887);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
