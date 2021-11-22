@@ -9,6 +9,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
     {
         private byte temperatura;
         private Random aleatorio;
+        private List<byte> lstTemperatura;
 
         private uint tiempo;
 
@@ -50,6 +51,20 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void detenerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimerAdSim.Stop();
+        }
+
+        private void filtrarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lstTemperatura = new List<byte>();
+            for (int i=0; i< dgvTiTemp.Rows.Count; i++)
+            {
+                Temperatura =Convert.ToByte( dgvTiTemp.Rows[i].Cells["ColTemperatura"].Value);
+                lstTemperatura.Add(Temperatura);
+            }
+            FormFiltrarDatos formFiltrar = new FormFiltrarDatos(lstTemperatura);
+            formFiltrar.Show();
+
+
         }
     }
 }

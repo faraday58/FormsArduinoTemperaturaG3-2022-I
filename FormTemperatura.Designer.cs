@@ -30,9 +30,9 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +50,12 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.TimerAdSim = new System.Windows.Forms.Timer(this.components);
             this.ColTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsDatos = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.filtrarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGrafica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiTemp)).BeginInit();
+            this.cmsDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -148,19 +151,19 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // 
             // chartGrafica
             // 
-            chartArea2.AxisX.Title = "Tiempo [s]";
-            chartArea2.AxisY.Title = "Temperatura [°C]";
-            chartArea2.Name = "ChartArea1";
-            this.chartGrafica.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartGrafica.Legends.Add(legend2);
+            chartArea3.AxisX.Title = "Tiempo [s]";
+            chartArea3.AxisY.Title = "Temperatura [°C]";
+            chartArea3.Name = "ChartArea1";
+            this.chartGrafica.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartGrafica.Legends.Add(legend3);
             this.chartGrafica.Location = new System.Drawing.Point(520, 145);
             this.chartGrafica.Name = "chartGrafica";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Temperatura";
-            this.chartGrafica.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Temperatura";
+            this.chartGrafica.Series.Add(series3);
             this.chartGrafica.Size = new System.Drawing.Size(1023, 605);
             this.chartGrafica.TabIndex = 1;
             this.chartGrafica.Text = "chart1";
@@ -173,6 +176,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.dgvTiTemp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColTiempo,
             this.ColTemperatura});
+            this.dgvTiTemp.ContextMenuStrip = this.cmsDatos;
             this.dgvTiTemp.Location = new System.Drawing.Point(33, 190);
             this.dgvTiTemp.Name = "dgvTiTemp";
             this.dgvTiTemp.ReadOnly = true;
@@ -203,6 +207,21 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.ColTemperatura.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColTemperatura.Width = 140;
             // 
+            // cmsDatos
+            // 
+            this.cmsDatos.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsDatos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filtrarDatosToolStripMenuItem});
+            this.cmsDatos.Name = "cmsDatos";
+            this.cmsDatos.Size = new System.Drawing.Size(219, 42);
+            // 
+            // filtrarDatosToolStripMenuItem
+            // 
+            this.filtrarDatosToolStripMenuItem.Name = "filtrarDatosToolStripMenuItem";
+            this.filtrarDatosToolStripMenuItem.Size = new System.Drawing.Size(300, 38);
+            this.filtrarDatosToolStripMenuItem.Text = "Filtrar Datos";
+            this.filtrarDatosToolStripMenuItem.Click += new System.EventHandler(this.filtrarDatosToolStripMenuItem_Click);
+            // 
             // FormTemperatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -218,6 +237,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGrafica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiTemp)).EndInit();
+            this.cmsDatos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +262,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private System.Windows.Forms.Timer TimerAdSim;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTemperatura;
+        private System.Windows.Forms.ContextMenuStrip cmsDatos;
+        private System.Windows.Forms.ToolStripMenuItem filtrarDatosToolStripMenuItem;
     }
 }
