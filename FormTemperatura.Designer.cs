@@ -29,9 +29,10 @@ namespace FormsArduinoTemperaturaG3_2022_I
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvTiemTemp = new System.Windows.Forms.DataGridView();
             this.chartTemperatura = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -48,6 +49,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.detenerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ColTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerGraficar = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiemTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperatura)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -71,19 +73,19 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // 
             // chartTemperatura
             // 
-            chartArea1.AxisX.Title = "Tiempo [s]";
-            chartArea1.AxisY.Title = "Temperatura [°C]";
-            chartArea1.Name = "ChartArea1";
-            this.chartTemperatura.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTemperatura.Legends.Add(legend1);
+            chartArea3.AxisX.Title = "Tiempo [s]";
+            chartArea3.AxisY.Title = "Temperatura [°C]";
+            chartArea3.Name = "ChartArea1";
+            this.chartTemperatura.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartTemperatura.Legends.Add(legend3);
             this.chartTemperatura.Location = new System.Drawing.Point(595, 163);
             this.chartTemperatura.Name = "chartTemperatura";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "seTemp";
-            this.chartTemperatura.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "seTemp";
+            this.chartTemperatura.Series.Add(series3);
             this.chartTemperatura.Size = new System.Drawing.Size(1405, 838);
             this.chartTemperatura.TabIndex = 1;
             this.chartTemperatura.Text = "chart1";
@@ -96,7 +98,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.controlToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2063, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(2063, 42);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -136,7 +138,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.toolStripMenuItem1,
             this.simularToolStripMenuItem});
             this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
-            this.controlToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
+            this.controlToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
             this.controlToolStripMenuItem.Text = "Control";
             // 
             // iniciarToolStripMenuItem
@@ -170,12 +172,14 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.iniciarToolStripMenuItem1.Name = "iniciarToolStripMenuItem1";
             this.iniciarToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
             this.iniciarToolStripMenuItem1.Text = "Iniciar";
+            this.iniciarToolStripMenuItem1.Click += new System.EventHandler(this.iniciarToolStripMenuItem1_Click);
             // 
             // detenerToolStripMenuItem1
             // 
             this.detenerToolStripMenuItem1.Name = "detenerToolStripMenuItem1";
             this.detenerToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
             this.detenerToolStripMenuItem1.Text = "Detener";
+            this.detenerToolStripMenuItem1.Click += new System.EventHandler(this.detenerToolStripMenuItem1_Click);
             // 
             // ColTiempo
             // 
@@ -192,6 +196,11 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.ColTemperatura.Name = "ColTemperatura";
             this.ColTemperatura.ReadOnly = true;
             this.ColTemperatura.Width = 200;
+            // 
+            // timerGraficar
+            // 
+            this.timerGraficar.Interval = 500;
+            this.timerGraficar.Tick += new System.EventHandler(this.timerGraficar_Tick);
             // 
             // FormTemperatura
             // 
@@ -231,5 +240,6 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private System.Windows.Forms.ToolStripMenuItem detenerToolStripMenuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTemperatura;
+        private System.Windows.Forms.Timer timerGraficar;
     }
 }
