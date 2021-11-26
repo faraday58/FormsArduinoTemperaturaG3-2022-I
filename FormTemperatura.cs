@@ -16,6 +16,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
         {
             InitializeComponent();
             aleatorio = new Random();
+            validarGuardar();
         }
         #region Propiedades
         public byte Temperatura
@@ -37,6 +38,18 @@ namespace FormsArduinoTemperaturaG3_2022_I
         #endregion
 
 
+        private void validarGuardar()
+        {
+            if(dgvTiemTemp.Rows.Count == 0)
+            {
+                guardarToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                guardarToolStripMenuItem.Enabled = true;
+            }
+        }
+
 
         private void timerGraficar_Tick(object sender, EventArgs e)
         {
@@ -49,11 +62,13 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void iniciarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             timerGraficar.Start();
+            validarGuardar();
         }
 
         private void detenerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             timerGraficar.Stop();
+            validarGuardar();
         }
 
         private void filtrarDatosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,6 +133,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
                     {
                         string[] datos = linea.Split(',');
                         dgvTiemTemp.Rows.Add(datos[0], datos[1]);
+                        chartTemperatura.Series["seTemp"].Points.AddXY(datos[0], datos[1]);
                         linea = sr.ReadLine();
                     }
                 }
