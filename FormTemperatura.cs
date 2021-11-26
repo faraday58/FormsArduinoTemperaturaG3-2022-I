@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FormsArduinoTemperaturaG3_2022_I
 {
@@ -66,6 +67,36 @@ namespace FormsArduinoTemperaturaG3_2022_I
 
             FormFiltrarDatos formFiltrarDatos = new FormFiltrarDatos(lstTemperatura);
             formFiltrarDatos.Show();
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Archivos de texto | *.txt| Archivo delimitado por ',' *.csv| *.csv|Todos los archivos (*.*) | *.*";
+            sfd.DefaultExt = "*.csv";
+
+            StreamWriter sw = null;
+            try
+            {
+                if(  sfd.ShowDialog()  == DialogResult.OK )
+                {
+                    sw = new StreamWriter(sfd.FileName);
+                    sw.WriteLine("Tiempo,Temperatura");
+                    for(int i=0; i < dgvTiemTemp.Rows.Count; i++    )
+                    {
+                        sw.WriteLine("{0},{1}",dgvTiemTemp.Rows[i].Cells["ColTiempo"].Value,dgvTiemTemp.Rows[i].Cells["ColTemperatura"].Value);
+                    }
+                }
+            }
+            catch(IOException Error)
+            {
+                MessageBox.Show("Error", Error.Message);
+            }
+            finally
+            {
+                sw.Close();
+            }
+
         }
     }
 }
