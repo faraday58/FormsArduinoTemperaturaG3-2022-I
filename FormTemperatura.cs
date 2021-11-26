@@ -98,5 +98,41 @@ namespace FormsArduinoTemperaturaG3_2022_I
             }
 
         }
+
+        private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Archivos de texto | *.txt| Archivo delimitado por ',' *.csv| *.csv|Todos los archivos (*.*) | *.*";
+            ofd.DefaultExt = "*.csv";
+            StreamReader sr = null;
+
+            if( ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    sr = new StreamReader(ofd.FileName);
+
+                    string linea =sr.ReadLine();
+                    linea = sr.ReadLine();
+                    while( linea != null   )
+                    {
+                        string[] datos = linea.Split(',');
+                        dgvTiemTemp.Rows.Add(datos[0], datos[1]);
+                        linea = sr.ReadLine();
+                    }
+                }
+                catch(IOException error )
+                {
+                    MessageBox.Show(error.Message, "Error" );
+                }
+                finally
+                {
+                    sr.Close();
+                }
+
+            }
+
+
+        }
     }
 }
