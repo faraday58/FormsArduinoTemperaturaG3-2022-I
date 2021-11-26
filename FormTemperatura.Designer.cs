@@ -37,6 +37,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,14 +45,13 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.simularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.detenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chartGrafica = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvTiTemp = new System.Windows.Forms.DataGridView();
+            this.cmsDatos = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.filtrarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerAdSim = new System.Windows.Forms.Timer(this.components);
             this.ColTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsDatos = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.filtrarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartGrafica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiTemp)).BeginInit();
@@ -77,7 +77,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.guardarToolStripMenuItem,
             this.exportarToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(115, 36);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(115, 38);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // cargarToolStripMenuItem
@@ -85,12 +85,20 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
             this.cargarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.cargarToolStripMenuItem.Text = "Cargar";
+            this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
             this.guardarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            // 
+            // exportarToolStripMenuItem
+            // 
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // controlToolStripMenuItem
             // 
@@ -100,25 +108,25 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.toolStripMenuItem1,
             this.simularToolStripMenuItem});
             this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
-            this.controlToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
+            this.controlToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
             this.controlToolStripMenuItem.Text = "Control";
             // 
             // iniciarToolStripMenuItem
             // 
             this.iniciarToolStripMenuItem.Name = "iniciarToolStripMenuItem";
-            this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.iniciarToolStripMenuItem.Size = new System.Drawing.Size(229, 44);
             this.iniciarToolStripMenuItem.Text = "Iniciar";
             // 
             // pararToolStripMenuItem
             // 
             this.pararToolStripMenuItem.Name = "pararToolStripMenuItem";
-            this.pararToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.pararToolStripMenuItem.Size = new System.Drawing.Size(229, 44);
             this.pararToolStripMenuItem.Text = "Parar";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(356, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
             // 
             // simularToolStripMenuItem
             // 
@@ -126,28 +134,22 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.iniciarToolStripMenuItem1,
             this.detenerToolStripMenuItem});
             this.simularToolStripMenuItem.Name = "simularToolStripMenuItem";
-            this.simularToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.simularToolStripMenuItem.Size = new System.Drawing.Size(229, 44);
             this.simularToolStripMenuItem.Text = "Simular";
             // 
             // iniciarToolStripMenuItem1
             // 
             this.iniciarToolStripMenuItem1.Name = "iniciarToolStripMenuItem1";
-            this.iniciarToolStripMenuItem1.Size = new System.Drawing.Size(359, 44);
+            this.iniciarToolStripMenuItem1.Size = new System.Drawing.Size(235, 44);
             this.iniciarToolStripMenuItem1.Text = "Iniciar";
             this.iniciarToolStripMenuItem1.Click += new System.EventHandler(this.iniciarToolStripMenuItem1_Click);
             // 
             // detenerToolStripMenuItem
             // 
             this.detenerToolStripMenuItem.Name = "detenerToolStripMenuItem";
-            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.detenerToolStripMenuItem.Size = new System.Drawing.Size(235, 44);
             this.detenerToolStripMenuItem.Text = "Detener";
             this.detenerToolStripMenuItem.Click += new System.EventHandler(this.detenerToolStripMenuItem_Click);
-            // 
-            // exportarToolStripMenuItem
-            // 
-            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
-            this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // chartGrafica
             // 
@@ -186,6 +188,21 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.dgvTiTemp.Size = new System.Drawing.Size(481, 526);
             this.dgvTiTemp.TabIndex = 2;
             // 
+            // cmsDatos
+            // 
+            this.cmsDatos.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsDatos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filtrarDatosToolStripMenuItem});
+            this.cmsDatos.Name = "cmsDatos";
+            this.cmsDatos.Size = new System.Drawing.Size(219, 42);
+            // 
+            // filtrarDatosToolStripMenuItem
+            // 
+            this.filtrarDatosToolStripMenuItem.Name = "filtrarDatosToolStripMenuItem";
+            this.filtrarDatosToolStripMenuItem.Size = new System.Drawing.Size(218, 38);
+            this.filtrarDatosToolStripMenuItem.Text = "Filtrar Datos";
+            this.filtrarDatosToolStripMenuItem.Click += new System.EventHandler(this.filtrarDatosToolStripMenuItem_Click);
+            // 
             // TimerAdSim
             // 
             this.TimerAdSim.Tick += new System.EventHandler(this.TimerAdSim_Tick);
@@ -206,21 +223,6 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.ColTemperatura.ReadOnly = true;
             this.ColTemperatura.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColTemperatura.Width = 140;
-            // 
-            // cmsDatos
-            // 
-            this.cmsDatos.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.cmsDatos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filtrarDatosToolStripMenuItem});
-            this.cmsDatos.Name = "cmsDatos";
-            this.cmsDatos.Size = new System.Drawing.Size(219, 42);
-            // 
-            // filtrarDatosToolStripMenuItem
-            // 
-            this.filtrarDatosToolStripMenuItem.Name = "filtrarDatosToolStripMenuItem";
-            this.filtrarDatosToolStripMenuItem.Size = new System.Drawing.Size(300, 38);
-            this.filtrarDatosToolStripMenuItem.Text = "Filtrar Datos";
-            this.filtrarDatosToolStripMenuItem.Click += new System.EventHandler(this.filtrarDatosToolStripMenuItem_Click);
             // 
             // FormTemperatura
             // 
@@ -260,9 +262,9 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private System.Windows.Forms.DataVisualization.Charting.Chart chartGrafica;
         private System.Windows.Forms.DataGridView dgvTiTemp;
         private System.Windows.Forms.Timer TimerAdSim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTemperatura;
         private System.Windows.Forms.ContextMenuStrip cmsDatos;
         private System.Windows.Forms.ToolStripMenuItem filtrarDatosToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTiempo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTemperatura;
     }
 }
