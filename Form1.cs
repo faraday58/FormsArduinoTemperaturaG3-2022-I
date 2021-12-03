@@ -24,5 +24,12 @@ namespace FormsArduinoTemperaturaG3_2022_I
             formTemperatura.MdiParent = this;
             formTemperatura.Show();
         }
+
+        private void formDoodleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDoodle formDoodle = new FormDoodle();
+            
+            formDoodle.Show();
+        }
     }
 }

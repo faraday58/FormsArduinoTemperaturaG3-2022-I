@@ -62,12 +62,14 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void iniciarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             timerGraficar.Start();
+            this.iniciarToolStripMenuItem1.Image = global::FormsArduinoTemperaturaG3_2022_I.Properties.Resources.playArduino;
             validarGuardar();
         }
 
         private void detenerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             timerGraficar.Stop();
+            this.iniciarToolStripMenuItem1.Image = global::FormsArduinoTemperaturaG3_2022_I.Properties.Resources.playSimulador;
             validarGuardar();
         }
 
@@ -149,6 +151,16 @@ namespace FormsArduinoTemperaturaG3_2022_I
             }
 
 
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Imprimiendo ...");
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
