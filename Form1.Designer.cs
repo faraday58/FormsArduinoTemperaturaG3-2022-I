@@ -38,12 +38,13 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.verificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pruebaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aplicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pruebaLEDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.semáforoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formDoodleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tlsCmbPuertos = new System.Windows.Forms.ToolStripComboBox();
+            this.tlsCmbVelocidad = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +69,15 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.toolStripMenuItem1,
             this.verificarToolStripMenuItem,
             this.conectarToolStripMenuItem,
-            this.desconectarToolStripMenuItem,
-            this.pruebaToolStripMenuItem});
+            this.desconectarToolStripMenuItem});
             this.puertosToolStripMenuItem.Name = "puertosToolStripMenuItem";
             this.puertosToolStripMenuItem.Size = new System.Drawing.Size(185, 38);
             this.puertosToolStripMenuItem.Text = "&Configuración";
             // 
             // puertosToolStripMenuItem1
             // 
+            this.puertosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tlsCmbPuertos});
             this.puertosToolStripMenuItem1.Name = "puertosToolStripMenuItem1";
             this.puertosToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
@@ -84,6 +86,8 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // 
             // velocidadToolStripMenuItem
             // 
+            this.velocidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tlsCmbVelocidad});
             this.velocidadToolStripMenuItem.Name = "velocidadToolStripMenuItem";
             this.velocidadToolStripMenuItem.Size = new System.Drawing.Size(401, 44);
             this.velocidadToolStripMenuItem.Text = "Velocidad";
@@ -98,24 +102,20 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.verificarToolStripMenuItem.Name = "verificarToolStripMenuItem";
             this.verificarToolStripMenuItem.Size = new System.Drawing.Size(401, 44);
             this.verificarToolStripMenuItem.Text = "Verificar";
+            this.verificarToolStripMenuItem.Click += new System.EventHandler(this.verificarToolStripMenuItem_Click);
             // 
             // conectarToolStripMenuItem
             // 
             this.conectarToolStripMenuItem.Name = "conectarToolStripMenuItem";
             this.conectarToolStripMenuItem.Size = new System.Drawing.Size(401, 44);
             this.conectarToolStripMenuItem.Text = "Conectar";
+            this.conectarToolStripMenuItem.Click += new System.EventHandler(this.conectarToolStripMenuItem_Click);
             // 
             // desconectarToolStripMenuItem
             // 
             this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
             this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(401, 44);
             this.desconectarToolStripMenuItem.Text = "Desconectar";
-            // 
-            // pruebaToolStripMenuItem
-            // 
-            this.pruebaToolStripMenuItem.Name = "pruebaToolStripMenuItem";
-            this.pruebaToolStripMenuItem.Size = new System.Drawing.Size(401, 44);
-            this.pruebaToolStripMenuItem.Text = "Prueba";
             // 
             // aplicacionesToolStripMenuItem
             // 
@@ -159,6 +159,20 @@ namespace FormsArduinoTemperaturaG3_2022_I
             this.formDoodleToolStripMenuItem.Text = "FormDoodle";
             this.formDoodleToolStripMenuItem.Click += new System.EventHandler(this.formDoodleToolStripMenuItem_Click);
             // 
+            // tlsCmbPuertos
+            // 
+            this.tlsCmbPuertos.Name = "tlsCmbPuertos";
+            this.tlsCmbPuertos.Size = new System.Drawing.Size(121, 40);
+            // 
+            // tlsCmbVelocidad
+            // 
+            this.tlsCmbVelocidad.Items.AddRange(new object[] {
+            "4800",
+            "9600",
+            "19200"});
+            this.tlsCmbVelocidad.Name = "tlsCmbVelocidad";
+            this.tlsCmbVelocidad.Size = new System.Drawing.Size(121, 40);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -188,12 +202,13 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private System.Windows.Forms.ToolStripMenuItem verificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem conectarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem desconectarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pruebaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aplicacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pruebaLEDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem temperaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem semáforoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formDoodleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox tlsCmbPuertos;
+        private System.Windows.Forms.ToolStripComboBox tlsCmbVelocidad;
     }
 }
 

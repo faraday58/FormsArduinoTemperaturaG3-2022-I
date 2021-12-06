@@ -38,9 +38,9 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // ptbJugador
             // 
             this.ptbJugador.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ptbJugador.Location = new System.Drawing.Point(407, 288);
+            this.ptbJugador.Location = new System.Drawing.Point(134, 219);
             this.ptbJugador.Name = "ptbJugador";
-            this.ptbJugador.Size = new System.Drawing.Size(100, 340);
+            this.ptbJugador.Size = new System.Drawing.Size(94, 288);
             this.ptbJugador.TabIndex = 0;
             this.ptbJugador.TabStop = false;
             // 
@@ -53,7 +53,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1908, 1018);
+            this.ClientSize = new System.Drawing.Size(1542, 833);
             this.Controls.Add(this.ptbJugador);
             this.Name = "FormDoodle";
             this.Text = "FormDoodle";

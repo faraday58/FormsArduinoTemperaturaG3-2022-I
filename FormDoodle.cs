@@ -12,28 +12,28 @@ namespace FormsArduinoTemperaturaG3_2022_I
 {
     public partial class FormDoodle : Form
     {
-        int velJugador = 8;
-        bool Arriba, Abajo, Izquierda, Derecha;
+        private bool Izquierda, Derecha, Arriba, Abajo;
+        private int velJugador = 8;
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void FormDoodle_KeyDown(object sender, KeyEventArgs e)
         {
-            if( Izquierda)
+            if ( e.KeyCode == Keys.Right   )
             {
-                ptbJugador.Left -= velJugador;
+                Derecha = true;
             }
-            if( Derecha )
+            if( e.KeyCode == Keys.Left)
             {
-                ptbJugador.Left += velJugador;
+                Izquierda = true;
             }
-            if( Arriba)
+            if(e.KeyCode == Keys.Down)
             {
-                ptbJugador.Top -= velJugador;
-            }
-            if(Abajo)
-            {
-                ptbJugador.Top += velJugador;
+                Abajo = true;
             }
 
+            if(e.KeyCode == Keys.Up)
+            {
+                Arriba = true;
+            }
         }
 
         private void FormDoodle_KeyUp(object sender, KeyEventArgs e)
@@ -54,32 +54,34 @@ namespace FormsArduinoTemperaturaG3_2022_I
             {
                 Arriba = false;
             }
-
         }
 
-        private void FormDoodle_KeyDown(object sender, KeyEventArgs e)
-        {
-            if( e.KeyCode  == Keys.Right )
-            {
-                Derecha = true;
-            }
-            if( e.KeyCode == Keys.Left   )
-            {
-                Izquierda = true;
-            }
-            if( e.KeyCode == Keys.Down)
-            {
-                Abajo = true;
-            }
-            if( e.KeyCode ==  Keys.Up)
-            {
-                Arriba = true;
-            }
-        }
+        
+
 
         public FormDoodle()
         {
             InitializeComponent();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if( Izquierda)
+            {
+                ptbJugador.Left -= velJugador;
+            }
+            if( Derecha )
+            {
+                ptbJugador.Left += velJugador;
+            }
+            if( Abajo )
+            {
+                ptbJugador.Top += velJugador;
+            }
+            if(Arriba)
+            {
+                ptbJugador.Top -= velJugador;
+            }
         }
     }
 }
