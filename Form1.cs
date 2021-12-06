@@ -27,7 +27,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
 
         private void pruebaLEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PruebaLED formPruebaLed = new PruebaLED();
+            PruebaLED formPruebaLed = new PruebaLED(serialPort);
             formPruebaLed.MdiParent = this;
             formPruebaLed.Show();             
         }
@@ -63,6 +63,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void conectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             serialPort.Open();
+            conectarToolStripMenuItem.Enabled = false;
         }
     }
 }
