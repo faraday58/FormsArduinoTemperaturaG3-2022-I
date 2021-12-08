@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms.DataVisualization;
 using System.Windows.Forms;
 using System.IO;
 using System.IO.Ports;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace FormsArduinoTemperaturaG3_2022_I
 {
@@ -78,6 +81,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             timerGraficar.Start();
             this.iniciarToolStripMenuItem1.Image = global::FormsArduinoTemperaturaG3_2022_I.Properties.Resources.playArduino;
             validarGuardar();
+            sensar = false;
         }
 
         private void detenerToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -85,6 +89,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
             timerGraficar.Stop();
             this.iniciarToolStripMenuItem1.Image = global::FormsArduinoTemperaturaG3_2022_I.Properties.Resources.playSimulador;
             validarGuardar();
+            sensar = true;
         }
 
         private void filtrarDatosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +192,26 @@ namespace FormsArduinoTemperaturaG3_2022_I
         {
             timerGraficar.Stop();
             sensar = false;
+        }
+
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Document docPDF = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            if( sfd.ShowDialog() == DialogResult.OK)
+            {
+                PdfWriter pdfWriter = PdfWriter.GetInstance(docPDF, new FileStream(sfd.FileName, FileMode.Append));
+                docPDF.Open();
+                MemoryStream imagenStream = new MemoryStream();
+                chartTemperatura.SaveImage(imagenStream,System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+                iTextSharp.text.Image GrafPdf = iTextSharp.text.Image.GetInstance(imagenStream.GetBuffer());
+                docPDF.Add(GrafPdf);
+                docPDF.Close();
+            }
+
+
+
         }
     }
 }

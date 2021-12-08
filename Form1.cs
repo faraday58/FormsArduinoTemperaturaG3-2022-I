@@ -34,7 +34,7 @@ namespace FormsArduinoTemperaturaG3_2022_I
 
         private void temperaturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormTemperatura formTemperatura = new FormTemperatura();
+            FormTemperatura formTemperatura = new FormTemperatura(serialPort);
             formTemperatura.MdiParent = this;
             formTemperatura.Show();
         }
