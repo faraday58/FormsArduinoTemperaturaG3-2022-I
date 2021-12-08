@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.Ports;
 
 namespace FormsArduinoTemperaturaG3_2022_I
 {
@@ -12,11 +13,14 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private Random aleatorio;
         private uint tiempo;
         private List<byte> lstTemperatura;
-        public FormTemperatura()
+        private SerialPort serialPort;
+        private bool sensar;
+        public FormTemperatura(SerialPort serialPort)
         {
             InitializeComponent();
             aleatorio = new Random();
             validarGuardar();
+            this.serialPort = serialPort;
         }
         #region Propiedades
         public byte Temperatura
@@ -53,10 +57,20 @@ namespace FormsArduinoTemperaturaG3_2022_I
 
         private void timerGraficar_Tick(object sender, EventArgs e)
         {
-            Temperatura = (byte)aleatorio.Next(120);
-            tiempo++;
-            dgvTiemTemp.Rows.Add(tiempo, Temperatura);
-            chartTemperatura.Series["seTemp"].Points.AddXY(tiempo,Temperatura);
+            if (!sensar)
+            {
+                Temperatura = (byte)aleatorio.Next(120);
+                tiempo++;
+                dgvTiemTemp.Rows.Add(tiempo, Temperatura);
+                chartTemperatura.Series["seTemp"].Points.AddXY(tiempo, Temperatura);
+            }
+            else
+            {
+                Temperatura = (byte)serialPort.ReadByte();
+                tiempo++;
+                dgvTiemTemp.Rows.Add(tiempo, Temperatura);
+                chartTemperatura.Series["seTemp"].Points.AddXY(tiempo, Temperatura);
+            }
         }
 
         private void iniciarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -161,6 +175,18 @@ namespace FormsArduinoTemperaturaG3_2022_I
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void iniciarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timerGraficar.Start();
+            sensar = true;
+        }
+
+        private void detenerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timerGraficar.Stop();
+            sensar = false;
         }
     }
 }
